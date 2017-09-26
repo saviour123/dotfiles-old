@@ -83,7 +83,7 @@ alias al='aria2c --file-allocation=none --force-sequential=true -c -x 10 -i'
 alias aria_list='aria2c --file-allocation=none --force-sequential=true -c -x 10 -i'
 alias chrome=google-chrome-unstable
 alias hdmi='xrandr --output HDMI1 --auto --right-of LVDS1'
-alias lock='i3lock -c #1e90ff'
+# alias lock='i3lock -c #1e90ff'
 alias reload_sound='pulseaudio -k && sudo alsa force-reload'
 alias route_sound='pactl load-module module-loopback'
 alias settings=gnome-control-center
@@ -102,10 +102,12 @@ alias upgrade='sudo apt-get update && sudo apt-get upgrade'
 alias clean='sudo apt-get autoclean && sudo apt-get autoremove'
 alias rm='rm -rf'
 alias suspend='systemctl suspend'
-alias android-st='/opt/android-studio/bin/studio.sh'
+alias android-st='sudo /opt/android-studio/bin/studio.sh'
 alias ipython='ipython3'
 alias clera=clear
 alias cl=clear
+alias lock='i3lock -i ~/Pictures/mybg1.png -o '#191d0f' -w '#572020' -l '#e03e64' -e'
+
 
 ng_opts='b build completion doc e2e g generate get github-pages:deploy gh-pages:deploy h help i init install lint make-this-awesome new s serve server set t test v version -h --help'
 

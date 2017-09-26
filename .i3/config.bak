@@ -1,0 +1,311 @@
+set $mod Mod4
+
+exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/IMG.jpg
+bindsym $mod+F6 exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/IMG.jpg
+
+focus_on_window_activation urgent
+
+# Power options
+bindcode 124 exec ~/dotfiles/i3-exit
+
+# Colors Colors Colors I suck at them :)
+
+# client.focused #3F8AC2 #096BAA #00BAA7 #00DA8E
+# client.focused_inactive #333333 #5F676A #ffffff #484e50
+# client.unfocused #333333 #424242 #888888 #292d2e
+# client.urgent #C10004 #900000 #ffffff #900000
+
+# color defines for zenburn styled i3
+# set $bg     #2c2c2e
+# set $fg     #9f9f9f
+# set $hi     #efef8f
+# set $ac     #a0afa0
+# set $tx     #040404
+# set $ia     #8f8f8f
+# set $be     #8faf9f
+# set $yw     #ccdc90
+# set $gn     #88b090
+# set $rd     #e89393
+
+# color defines for my custom-styled chrome theme for i3
+set $ac #1B324B
+set $bg #112131
+set $tx #33B9FC
+set $ia #7A88A9
+set $rd #e89393
+set $bo #1A2E49
+
+# set some nice colors      border     background  text
+client.focused              $ac        $ac         $tx
+client.unfocused            $bo        $bg         $ia
+client.focused_inactive     $bg        $bg         $tx
+client.urgent               $rd        $rd         $tx
+
+font pango:Source Source Code Pro for Powerline 10, FontAwesome 9
+
+# add support for media keys and other gnome settings
+# exec gnome-settings-daemon
+
+exec --no-startup-id unity-settings-daemon
+
+exec --no-startup-id nm-applet
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec terminator
+
+# start terminator with alternative layout
+bindsym $mod+Shift+Return exec terminator -l preferred
+
+# kill focused window
+bindsym $mod+Shift+Q kill
+
+# start dmenu (a program launcher)
+# bindsym $mod+d exec dmenu_run
+
+# Better dmenu
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -nb #10252b -nf #a8c9e2"
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+J move left
+bindsym $mod+Shift+K move down
+bindsym $mod+Shift+L move up
+bindsym $mod+Shift+colon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# move the whole workspace to the next output(horizontal)
+bindsym $mod+x move workspace to output right
+
+# move workspace to next output(vertical)
+bindsym $mod+Shift+x move workspace to output up
+
+# spotify controls
+# bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+# bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+# bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+# bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+
+# clementine media player controls
+bindsym XF86AudioPlay exec clementine --play-pause
+bindsym XF86AudioStop exec clementine --stop
+bindsym XF86AudioPrev exec clementine --previous
+bindsym XF86AudioNext exec clementine --next
+
+# no stop key on apple keyboard, remap eject key for this purpose
+bindsym XF86Eject exec clementine --stop
+
+# volume controls
+
+# Pulse Audio controls for sink 0, perform pulseaudio -k to use usb headset as
+# sink 0 with headset inserted
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 -- +5% #increase volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -5% #decrease volume
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+
+# bindsym XF86AudioRaiseVolume exec amixer -q set PCM 2dB+ unmute
+# bindsym XF86AudioLowerVolume exec amixer -q set PCM 2dB- unmute
+# bindsym XF86AudioMute exec amixer -q set PCM toggle
+
+# brightness controls
+bindsym XF86MonBrightnessDown exec ~/dotfiles/bin/brightness - 10
+bindsym XF86MonBrightnessUp exec ~/dotfiles/bin/brightness + 10
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, default)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout default
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+# bindcode $mod+d focus child
+
+# Mod1 is for Alt, So mainly Alt+Tab to switch b/n windows
+bindsym Mod1+Tab focus right
+bindsym Mod1+Shift+Tab focus left
+# last used workspace
+bindsym $mod+Tab workspace back_and_forth
+
+# rename workspace to reflect what's actually on them
+bindsym $mod+F2 exec i3-input -F 'rename workspace to "%s"' -P 'New workspace name(<num>: <name>) -> '
+
+# workspace names
+# for example workspace numbered 1 = personal chrome windows
+set $w1 : <span foreground="#4285F4">chrome/p</span>
+# shell workspace holds vim and tmux sessions
+set $w2 : <span foreground="#EA4335">shell</span>
+set $w3 : <span foreground="#fbbc05">music</span>
+set $w4 : <span foreground="#4285f4">files/videos</span>
+set $w5 : <span foreground="#34a853">irc</span>
+set $w6 : <span foreground="#EA4335">chrome/w</span>
+set $w7
+set $w8
+set $w9
+set $w10
+
+# switch to workspace
+bindsym $mod+1 workspace number 1$w1
+bindsym $mod+2 workspace number 2$w2
+bindsym $mod+3 workspace number 3$w3
+bindsym $mod+4 workspace number 4$w4
+bindsym $mod+5 workspace number 5$w5
+bindsym $mod+6 workspace number 6$w6
+bindsym $mod+7 workspace number 7$w7
+bindsym $mod+8 workspace number 8$w8
+bindsym $mod+9 workspace number 9$w9
+bindsym $mod+0 workspace number 10$w10
+
+# move focused container to workspace
+bindsym $mod+Shift+exclam move container to workspace number 1$w1
+bindsym $mod+Shift+at move container to workspace number 2$w2
+bindsym $mod+Shift+numbersign move container to workspace number 3$w3
+bindsym $mod+Shift+dollar move container to workspace number 4$w4
+bindsym $mod+Shift+percent move container to workspace number 5$w5
+bindsym $mod+Shift+asciicircum move container to workspace number 6$w6
+bindsym $mod+Shift+ampersand move container to workspace number 7$w7
+bindsym $mod+Shift+asterisk move container to workspace number 8$w8
+bindsym $mod+Shift+parenleft move container to workspace number 9$w9
+bindsym $mod+Shift+parenright move container to workspace number 10$w10
+
+assign [class="google-chrome-unstable"] 1$w1
+assign [class="Terminator"] 2$w2
+assign [class="Spotify"] 3$w3
+assign [class="Thunar"] 4$w4
+assign [class="Xchat"] 5$w5
+
+# border changing, cycle through normal, 1px and none values
+bindsym $mod+F12 border toggle
+
+# show/hide i3bar
+bindsym $mod+F10 bar mode toggle
+# reload the configuration file
+bindsym $mod+Shift+C reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+R restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+E exit
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    # These bindings trigger as soon as you enter the resize mode
+
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym j resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym l resize shrink height 10 px or 10 ppt
+    bindsym semicolon resize grow width 10 px or 10 ppt
+
+    # same bindings, but for the arrow keys
+    bindsym 113 resize shrink width 10 px or 10 ppt
+    bindsym 116 resize grow height 10 px or 10 ppt
+    bindsym 111 resize shrink height 10 px or 10 ppt
+    bindsym 114 resize grow width 10 px or 10 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# mode for moving floating windows without depending on the mouse, keys only
+mode "move_floating" {
+    # focus next floating window
+    bindsym $mod+Tab focus right
+
+    bindsym Left move left
+    bindsym h move left
+    bindsym Down move down
+    bindsym j move down
+    bindsym Up move up
+    bindsym k move up
+    bindsym Right move right
+    bindsym l move right
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# key-binding to focus and move around floating window
+bindsym $mod+m mode "move_floating" focus floating
+
+# Make currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show first scratchpad window
+bindsym $mod+minus scratchpad show
+
+# Frequently used programmes getting their home :)
+
+bindsym $mod+c exec google-chrome-unstable --disable-gpu
+# bindsym $mod+b exec gnome-control-center
+bindsym $mod+b exec unity-control-center
+
+# primary file manager
+bindsym $mod+t exec nemo --no-desktop
+# secondary file manager
+bindsym $mod+Shift+T exec thunar
+
+# screenshot
+bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+    position top
+    status_command    i3status
+    # status_command py3status -c ~/.i3status.conf
+    # status_command -c ~/.i3status.conf
+    tray_output LVDS1
+    colors{
+        background #10252b
+        statusline #a8c9e2
+        separator #c3bb4c
+        # workspace:       border  bg      text
+        focused_workspace  #30328f #18191a #a8c9e2
+        active_workspace   #63cbc2 #18191a #63cbc2
+        inactive_workspace #232323 #18191a #a8c9e2
+        urgent_workspace   #FF3B77 #18191a #ff3b77
+    }
+}
+
+# vim:filetype=i3

@@ -1,0 +1,10 @@
+.i3status.conf_
+.i3status.conf~
+.i3/config~
+.ropeproject/
+.vim/bundle
+.vim/backup
+.vim/swap
+.netrwhist
+.ssh/
+*.spl
