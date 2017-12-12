@@ -1,3 +1,4 @@
+exec zsh
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -37,7 +38,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -84,6 +85,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -113,40 +117,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
+export HISTCONTROL=ignoreboth:erasedups
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
 
-export PATH={PATH}:~/adt-bundle-linux-x86_64-20140321/sdk/tools
-export PATH={PATH}:~/adt-bundle-linux-x86_64-20140321/sdk/platform-tools
-
-export ANDROID_SDK_HOME=~/adt-bundle-linux-x86_64-20140321/sdk/tools
-export PATH=$PATH:$ANDROID_SDK_HOME
-
-export PATH=$PATH:/usr/bin
-export PATH=$PATH:/bin
-export PATH=$PATH:/usr/local/bin
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-### Path to JDK
-export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
-export PATH=$PATH:$JAVA_HOME
-
-### Path to GRADLE_HOME
-export PATH="~/gradle-1.11/bin:$PATH"
-
-
-### Add -/algs4/bin to the PATH
-export PATH=$PATH:$HOMEEr/algs4/bin
-
-
-alias ranger='~/Downloads/ranger-1.6.1/ranger.py'
-alias chrome=google-chrome-unstable
-alias settings=gnome-control-center
-alias vga='xrandr --output VGA1 --auto --right-of LVDS1'
-alias hdmi='xrandr --output HDMI1 --auto --right-of LVDS1'
-alias suspend='sudo pm-suspend'
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/sav/.sdkman"
+[[ -s "/home/sav/.sdkman/bin/sdkman-init.sh" ]] && source "/home/sav/.sdkman/bin/sdkman-init.sh"

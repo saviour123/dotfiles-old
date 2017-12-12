@@ -98,6 +98,7 @@ set $w6 : <span foreground="#EA4335">Gimp</span>
 set $w7 : <span foreground="#EA4335">Nautilus</span>
 set $w8 : <span foreground="#EA4330">Others</span>
 set $w9 : <span foreground="#831d5f">Spotify</span>
+set $w9 : <span foreground="#831d5f">Spotify</span>
 set $w10 : <span foreground="#00bcd4">Temp</span>
 
 # switch to workspace
@@ -162,15 +163,15 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	tray_output LVDS-1
+	tray_output LVDS1
 	font pango: FontAwesome 8 
-    status_command i3status -c ~/.config/i3/i3status.conf
+    status_command i3status
     position	top
     separator_symbol "}{"
 	colors{
             background #10252b
             statusline #a8c9e2
-            separator #f4f142 ##f44286
+            separator #f4f142
             focused_workspace  #30328f #18191a #a8c9e2
             active_workspace   #63cbc2 #18191a #63cbc2
             inactive_workspace #232323 #18191a #a8c9e2
@@ -178,22 +179,24 @@ bar {
         }
 }
 
+# status_command i3status -c ~/.config/i3/i3status.conf
 
 # SAVIOURS ADDTIONS
 
 # Startup programs
-exec --no-startup-id i3-msg exec /usr/bin/firefox
+exec --no-startup-id i3-msg exec /opt/firefox_dev/firefox
 exec --no-startup-id i3-sensible-terminal
 exec --no-startup-id nm-applet
 exec --no-startup-id export PATH=/home/sav/anaconda3/bin:$PATH
 exec --no-startup-id thunderbird
-exec --no-startup-id feh --bg-fill ~/Pictures/bg.png
+exec --no-startup-id feh --bg-fill /home/sav/Pictures/bg.png
 exec --no-startup-id slack
 # exec --no-startup-id sudo mount -ro ntfs /dev/sda2 /mnt/winOS && sudo mount -ro ntfs /dev/sda3 /mnt/datacenter
 
 # Custom KeyBinds
 bindsym $mod+t exec nautilus --no-desktop
-bindsym $mod+Shift+l exec i3lock -i ~/Pictures/mybg1.png -o '#191d0f' -w '#572020' -l '#e03e64' -e
+# bindsym $mod+Shift+l exec i3lock -i ~/Pictures/mybg1.png -o '#191d0f' -w '#572020' -l '#e03e64' -e
+bindsym $mod+Shift+l exec i3lock -i ~/Pictures/mybg1.png -e
 
 #screenshot
 bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h.png' -e 'mv $f ~/Pictures/screenshots/'

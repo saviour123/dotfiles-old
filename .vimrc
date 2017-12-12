@@ -53,7 +53,7 @@ endif
 " And thanks to jdavis/dotfiles
 set backup
 set writebackup
-set backupdir=~/.vim/backup//
+set backupdir=~/.vim/backup/
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
@@ -272,6 +272,11 @@ Plugin 'avakhov/vim-yaml'
 
 " Pair programming
 Plugin 'FredKSchott/CoVim'
+
+" php
+"Source code browser supports( c/c++, java, perl, tcl, sql, php, etc
+Plugin 'taglist.vim'
+
 
 call vundle#end()  " required
 
