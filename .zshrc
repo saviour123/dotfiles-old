@@ -21,10 +21,8 @@ setopt HIST_IGNORE_SPACE
 
 
 # newskey api
-export newskey=aed9659f383f4b28b6ba9d30a3cb78c0 export 
-SendKey=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 
-export username=saviour export 
-devkey=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
+export newskey=aed9659f383f4b28b6ba9d30a3cb78c0 
+export username=saviour
 
 # kubernates
 source <(minikube completion zsh) 
