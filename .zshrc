@@ -17,9 +17,20 @@ setopt hist_ignore_dups
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt hist_ignore_all_dups
+setopt HIST_IGNORE_SPACE
 
 
+# newskey api
+export newskey=aed9659f383f4b28b6ba9d30a3cb78c0 export 
+SendKey=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 
+export username=saviour export 
+devkey=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
 
+# kubernates
+source <(minikube completion zsh) 
+source <(kubectl completion zsh)
+
+# antigen use omz
 antigen use oh-my-zsh
 
 # Bundles
