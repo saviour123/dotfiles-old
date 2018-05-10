@@ -8,8 +8,22 @@ export TERM='xterm-256color'
 export CHROME_REMOTE_DESKTOP_DEFAULT_DESKTOP_SIZES=960x540
 
 source $HOME/antigen.zsh
+
 # newskey api
 export newskey=aed9659f383f4b28b6ba9d30a3cb78c0
+
+# s3 store settings
+export S3_BUCKET=shalomlead
+export S3_KEY=AKIAIPSJPXSUXQDOSOGA
+export S3_SECRET_ACCESS_KEY=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
+
+# rds
+export rds_user=saviour123
+export rds_pass=!caldera123
+
+# aws_completer
+#source /usr/bin/aws_completer
+
 
 # zsh_history behaviour
 setopt hist_expire_dups_first
@@ -25,8 +39,8 @@ export newskey=aed9659f383f4b28b6ba9d30a3cb78c0
 export username=saviour
 
 # kubernates
-source <(minikube completion zsh) 
-source <(kubectl completion zsh)
+# source <(minikube completion zsh) 
+# source <(kubectl completion zsh)
 
 # antigen use omz
 antigen use oh-my-zsh
@@ -80,7 +94,7 @@ case `uname` in
         export ANDROID_HOME=~/android-sdk/sdk
 
         # Paths
-        export PATH="~/android-sdk/sdk/platform-tools:~/android-sdk/sdk/tools:/usr/local/bin:/bin:/usr/bin:/usr/sbin:/sbin:/usr/lib/jvm/java-7-openjdk-amd64"
+        export PATH=$PATH:"~/android-sdk/sdk/platform-tools:~/android-sdk/sdk/tools:/usr/local/bin:/bin:/usr/bin:/usr/sbin:/sbin:/usr/lib/jvm/java-7-openjdk-amd64"
 
         # Python path
         # export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
@@ -104,6 +118,8 @@ case `uname` in
         # java8 home
         export JAVA8_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
+        # flutter
+        export PATH="$HOME/development/flutter/bin:$PATH"
         # Go App Engine Path
         # export PATH=$PATH:$HOME/go_appengine/
         # # Go path
@@ -148,10 +164,10 @@ alias route_sound='pactl load-module module-loopback'
 alias settings=gnome-control-center
 alias unroute_sound='pactl unload-module module-loopback'
 alias utorrent='utserver -settingspath /opt/utorrent-server-alpha-v3_3/ &'
-# alias vga='xrandr --output VGA-1 --auto --right-of LVDS-1'
-# alias vga_same='xrandr --output VGA-1 --auto --same-as LVDS-1'
-alias vga_same='xrandr --output VGA1 --auto --same-as LVDS1'
-alias vga='xrandr --output VGA1 --auto --right-of LVDS1'
+alias vga='xrandr --output VGA-1 --auto --right-of LVDS-1'
+alias vga_same='xrandr --output VGA-1 --auto --same-as LVDS-1'
+# alias vga_same='xrandr --output VGA1 --auto --same-as LVDS1'
+# alias vga='xrandr --output VGA1 --auto --right-of LVDS1'
 alias server='python -m SimpleHTTPServer'
 alias server='python -m http.Server'
 alias firefox='/opt/firefox_dev/firefox'
@@ -259,3 +275,6 @@ fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/sav/.sdkman"
 [[ -s "/home/sav/.sdkman/bin/sdkman-init.sh" ]] && source "/home/sav/.sdkman/bin/sdkman-init.sh"
+
+# added by travis gem
+[ -f /home/sav/.travis/travis.sh ] && source /home/sav/.travis/travis.sh
