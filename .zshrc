@@ -12,10 +12,7 @@ source $HOME/antigen.zsh
 # newskey api
 export newskey=aed9659f383f4b28b6ba9d30a3cb78c0
 
-# s3 store settings
-export S3_BUCKET=shalomlead
-export S3_KEY=AKIAIPSJPXSUXQDOSOGA
-export S3_SECRET_ACCESS_KEY=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
+
 
 # rds
 export rds_user=saviour123
