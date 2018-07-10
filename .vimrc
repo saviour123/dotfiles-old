@@ -277,6 +277,9 @@ Plugin 'FredKSchott/CoVim'
 "Source code browser supports( c/c++, java, perl, tcl, sql, php, etc
 Plugin 'taglist.vim'
 
+" js, vue etc
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'posva/vim-vue'
 
 call vundle#end()  " required
 

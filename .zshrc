@@ -120,6 +120,8 @@ case `uname` in
 
         # flutter
         export PATH="$HOME/development/flutter/bin:$PATH"
+        export PATH="$HOME/.zsh/completion:$PATH"
+
         # Go App Engine Path
         # export PATH=$PATH:$HOME/go_appengine/
         # # Go path
@@ -278,3 +280,9 @@ export SDKMAN_DIR="/home/sav/.sdkman"
 
 # added by travis gem
 [ -f /home/sav/.travis/travis.sh ] && source /home/sav/.travis/travis.sh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# aws completion
+source  ~/.local/bin/aws_zsh_completer.sh
