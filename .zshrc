@@ -11,9 +11,6 @@ source $HOME/antigen.zsh
 
 
 
-# aws_completer
-#source /usr/bin/aws_completer
-
 
 # zsh_history behaviour
 setopt hist_expire_dups_first
