@@ -9,17 +9,7 @@ export CHROME_REMOTE_DESKTOP_DEFAULT_DESKTOP_SIZES=960x540
 
 source $HOME/antigen.zsh
 
-# newskey api
-export newskey=aed9659f383f4b28b6ba9d30a3cb78c0
 
-# s3 store settings
-export S3_BUCKET=shalomlead
-export S3_KEY=AKIAIPSJPXSUXQDOSOGA
-export S3_SECRET_ACCESS_KEY=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
-
-# rds
-export rds_user=saviour123
-export rds_pass=!caldera123
 
 # aws_completer
 #source /usr/bin/aws_completer
@@ -33,10 +23,6 @@ setopt HIST_IGNORE_SPACE
 setopt hist_ignore_all_dups
 setopt HIST_IGNORE_SPACE
 
-
-# newskey api
-export newskey=aed9659f383f4b28b6ba9d30a3cb78c0 
-export username=saviour
 
 # kubernates
 # source <(minikube completion zsh) 
