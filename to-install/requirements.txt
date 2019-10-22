@@ -77,7 +77,7 @@ pelican==3.6.3
 pep8==1.4.6
 pexpect==3.1
 pickleshare==0.5
-Pillow==2.3.0
+Pillow==6.2.0
 piston-mini-client==0.7.5
 pluggy==0.3.1
 powerline-status==2.2
